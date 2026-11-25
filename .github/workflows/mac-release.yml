@@ -1,7 +1,10 @@
 name: Mac release
 
 # A burrow-v* tag builds Burrow-<version>.dmg with native/scripts/package-dmg.sh and attaches it
-# to that tag's GitHub release. With the Developer ID and notary secrets (see
+# to that tag's GitHub release, with a copy named Burrow.dmg so
+# releases/latest/download/Burrow.dmg always downloads the latest version (the
+# joseamijares.com/burrow download links there). The appcast keeps pointing at
+# the versioned file. With the Developer ID and notary secrets (see
 # native/README.md) the image is signed, notarized and stapled, then signed for
 # Sparkle with SPARKLE_ED_PRIVATE_KEY, and the release gets an appcast.xml that
 # installed copies read at releases/latest/download/appcast.xml to update
@@ -252,11 +255,15 @@ jobs:
           # Named from MARKETING_VERSION (a pre-release tag's suffix isn't in it).
           dmg_file=$(ls dist/Burrow-*.dmg | head -n 1)
           dmg_name=$(basename "$dmg_file")
+          # The same image under a name that doesn't change between releases, for
+          # releases/latest/download/Burrow.dmg.
+          stable_dmg="$RUNNER_TEMP/Burrow.dmg"
+          cp "$dmg_file" "$stable_dmg"
           section="$RUNNER_TEMP/section.md"
           cat > "$section" <<'MD'
           <!-- mac-release:start -->
           **Install**
-          1. Download the `.dmg` below and open it.
+          1. Download `Burrow.dmg` below and open it. (`Burrow-<version>.dmg` is the same file.)
           2. Drag Burrow into Applications.
           MD
           if [ "$SIGNING" = notarized ]; then
@@ -291,7 +298,7 @@ jobs:
           body="$RUNNER_TEMP/body.md"
           notes="$RUNNER_TEMP/notes.md"
           if gh release view "$TAG" --json body --jq '.body // ""' > "$body" 2> /dev/null; then
-            gh release upload "$TAG" "$dmg_file" --clobber
+            gh release upload "$TAG" "$dmg_file" "$stable_dmg" --clobber
             if grep -q '<!-- mac-release:start -->' "$body"; then
               awk -v section="$section" '
                 /<!-- mac-release:start -->/ { while ((getline line < section) > 0) print line; skip = 1; next }
@@ -305,7 +312,7 @@ jobs:
             fi
             gh release edit "$TAG" --notes-file "$notes" ${prerelease:+--prerelease}
           else
-            gh release create "$TAG" "$dmg_file" --verify-tag --title "Burrow for Mac $version" \
+            gh release create "$TAG" "$dmg_file" "$stable_dmg" --verify-tag --title "Burrow for Mac $version" \
               --notes-file "$section" ${prerelease:+--prerelease}
             cp "$section" "$notes"
           fi

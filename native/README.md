@@ -189,7 +189,9 @@ is Daybook's workflow, adapted to Burrow.
 
 - **Tags:** pushing a `burrow-v*` tag builds, signs, notarizes and staples on
   a macOS runner. It then signs the image for Sparkle and attaches
-  `Burrow-<version>.dmg` and `appcast.xml` to the tag's release. A tag with a
+  `Burrow-<version>.dmg`, the same image as `Burrow.dmg`, and `appcast.xml` to
+  the tag's release. `releases/latest/download/Burrow.dmg` always fetches the
+  latest version; joseamijares.com/burrow links there. A tag with a
   suffix (`burrow-v0.2.0-beta.1`) makes a pre-release.
 - **Pull requests:** a pull request that touches `native/` builds an ad-hoc
   image as a workflow artifact.
