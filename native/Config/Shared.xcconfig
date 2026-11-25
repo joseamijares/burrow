@@ -1,0 +1,39 @@
+// Shared.xcconfig (copied from Daybook's mac/Config, adapted to Burrow)
+
+// ==========================================
+// Project Identity
+// ==========================================
+PRODUCT_NAME = Burrow
+PRODUCT_DISPLAY_NAME = Burrow
+PRODUCT_BUNDLE_IDENTIFIER = com.jamak.burrow
+MARKETING_VERSION = 0.1.0
+CURRENT_PROJECT_VERSION = 1
+
+// ==========================================
+// Platform Configuration
+// ==========================================
+MACOSX_DEPLOYMENT_TARGET = 14.0
+
+// ==========================================
+// Info PLIST
+// ==========================================
+GENERATE_INFOPLIST_FILE = YES
+INFOPLIST_FILE = Config/Info.plist
+INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.utilities
+INFOPLIST_KEY_NSHumanReadableCopyright = Burrow by Jamak. Cleaning by Mole (tw93, GPL-3.0).
+
+// ==========================================
+// Entitlements
+// ==========================================
+// Not sandboxed: Burrow runs `mo`, git and launchctl, and reads other apps'
+// caches. scripts/package-dmg.sh turns on the hardened runtime for Developer ID
+// builds (an ad-hoc build with it can't load Sparkle: library validation).
+CODE_SIGN_ENTITLEMENTS = Config/Burrow.entitlements
+
+// ==========================================
+// Burrow
+// ==========================================
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+SWIFT_VERSION = 6.0
+// Sparkle.framework (updates) is embedded in Contents/Frameworks; the app has to look there.
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks

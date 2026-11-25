@@ -1,0 +1,8 @@
+[
+  {"name": "IDLE", "bundle_id": "org.python.IDLE", "source": "App", "uninstall_name": "IDLE", "path": "/Applications/Python 3.12/IDLE.app", "size": "225KB"},
+  {"name": "Python Launcher", "bundle_id": "org.python.PythonLauncher", "source": "App", "uninstall_name": "Python Launcher", "path": "/Applications/Python 3.12/Python Launcher.app", "size": "446KB"},
+  {"name": "The Unarchiver", "bundle_id": "cx.c3.theunarchiver", "source": "App", "uninstall_name": "The Unarchiver", "path": "/Applications/The Unarchiver.app", "size": "27.1MB"},
+  {"name": "Firefox", "bundle_id": "org.mozilla.firefox", "source": "App", "uninstall_name": "Firefox", "path": "/Applications/Firefox.app", "size": "478.9MB"},
+  {"name": "Figma", "bundle_id": "com.figma.Desktop", "source": "App", "uninstall_name": "Figma", "path": "/Applications/Figma.app", "size": "316.3MB"},
+  {"name": "Docker", "bundle_id": "com.docker.docker", "source": "App", "uninstall_name": "Docker", "path": "/Applications/Docker.app", "size": "2.56GB"}
+]

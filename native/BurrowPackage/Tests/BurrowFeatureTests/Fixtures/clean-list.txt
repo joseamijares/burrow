@@ -1,0 +1,32 @@
+# Mole Cleanup Preview - 2026-11-25 11:05:00
+#
+# How to protect files:
+# 1. Run mo clean --whitelist and press Enter to save your selections
+# 2. Append paths below to ~/.config/mole/whitelist, one per line
+# A saved file replaces optional defaults; built-in safety protections still apply.
+#
+# Example:
+#   /Users/*/Library/Caches/com.example.app
+#
+
+
+=== User essentials ===
+/Users/you/Library/Caches/GeoServices  # 8KB
+/Users/you/Library/Caches/Homebrew  # 41.4MB
+/Users/you/Library/Caches/dotslash  # 270.7MB
+
+
+
+=== Developer tools ===
+/Users/you/.npm/_cacache/content-v2  # 225KB
+/Users/you/.npm/_cacache/index-v5  # 12KB
+/Users/you/.npm/_cacache/tmp  # 0B
+
+
+
+# ============================================
+# Summary
+# ============================================
+# Potential cleanup: 1.39GB
+# Items: 114
+# Categories: 6

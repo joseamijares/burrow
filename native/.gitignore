@@ -1,0 +1,11 @@
+# Xcode
+xcuserdata/
+*.dSYM
+*.dSYM.zip
+
+# Swift Package Manager and xcodebuild output
+.build/
+.swiftpm/
+
+# Release disk images and notary results (scripts/package-dmg.sh)
+build/

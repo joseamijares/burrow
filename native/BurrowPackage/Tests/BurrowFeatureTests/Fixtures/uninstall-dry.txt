@@ -1,0 +1,19 @@
+○ DRY RUN MODE, No app files or settings will be modified
+
+[2J[H◎ Matched 1 app(s):
+1. The Unarchiver  27.1MB  |  Last: 1y ago
+
+
+Files to be removed:
+◎ The Unarchiver · 27.2MB
+  ✓ /Applications/The Unarchiver.app · 27.1MB
+  ◎ Review only: /private/var/db/receipts/cx.c3.theunarchiver.bom · 176KB
+  ◎ Review only: /private/var/db/receipts/cx.c3.theunarchiver.plist · 4KB
+
+Personal data to remove:
+  ✓ ~/Library/Containers/cx.c3.theunarchiver
+  ✓ ~/Library/Application Scripts/cx.c3.theunarchiver
+  ✓ /var/folders/xx/yy/C/cx.c3.theunarchiver · 90KB
+
+
+Dry run complete; the list above is the plan and no apps were removed.
