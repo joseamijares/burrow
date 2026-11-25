@@ -213,20 +213,11 @@ Burrow updates itself with Sparkle 2, the same version and setup as Daybook
 `https://github.com/joseamijares/burrow/releases/latest/download/appcast.xml`,
 the `appcast.xml` that the release workflow attaches to the latest release.
 As with Daybook, pre-releases are never "latest", so they aren't offered.
-`SUPublicEDKey` is still empty; until it's filled in, the app doesn't check
-for updates, Settings says so, and Check for Updates… is disabled.
-
-To turn updates on:
-
-1. Make the key once, and keep it: installed copies only accept updates
-   signed with the key they shipped with. This command makes it, backs it up,
-   sets the `SPARKLE_ED_PRIVATE_KEY` secret, and writes `SUPublicEDKey`:
-
-   ```bash
-   SPARKLE_ONLY=1 native/scripts/signing-secrets.sh
-   ```
-
-2. Commit the key, then tag.
+Each update has to be signed with the private half of `SUPublicEDKey`: Burrow's
+own key, made by `signing-secrets.sh` (login keychain account `burrow`) and
+stored in the `SPARKLE_ED_PRIVATE_KEY` secret. Keep it: installed copies only
+accept updates signed with the key they shipped with. `SPARKLE_ONLY=1
+native/scripts/signing-secrets.sh` sets the secret again from the keychain.
 
 Burrow isn't sandboxed, so Sparkle installs updates directly. It needs none
 of the installer-service exceptions Daybook's sandbox does. To try an update

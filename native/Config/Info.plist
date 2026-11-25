@@ -13,7 +13,7 @@
 	<key>SUFeedURL</key>
 	<string>https://github.com/joseamijares/burrow/releases/latest/download/appcast.xml</string>
 	<key>SUPublicEDKey</key>
-	<string></string>
+	<string>CiMGeW7EUVjwMAQg7Qn/qeafmW1m6KDjoZSLyS18Hkw=</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>86400</integer>
 </dict>
