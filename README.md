@@ -4,7 +4,7 @@ A calm Mac cleaner and health monitor, built on [Mole](https://github.com/tw93/M
 
 Burrow shows you every file before it moves anything. It finds caches, app leftovers, old installers, forgotten git worktrees, build folders and developer tools you don't use anymore, and it keeps an eye on memory, CPU and your network.
 
-**[Download Burrow](https://github.com/joseamijares/burrow/releases/latest/download/Burrow.dmg)** · [Website](https://joseamijares.com/burrow) · [All releases](https://github.com/joseamijares/burrow/releases)
+**[Download Burrow](https://github.com/joseamijares/burrow/releases/latest/download/Burrow.dmg)** · [Website](https://joseamijares.com/burrow) · [How I built it](https://joseamijares.com/blog/burrow-mac-cleaner-from-claude-artifact) · [All releases](https://github.com/joseamijares/burrow/releases)
 
 ## Install
 
